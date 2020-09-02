@@ -1,0 +1,133 @@
+import sys
+print('Python version used is ' + sys.version)
+
+#length of string
+str1 = 'Vivaan'
+str1_len = len(str1)
+print(f'length of string is {str1_len}')
+
+#count number frequency of each character
+str2 = 'google.com'
+dict = {}
+for s in str2:
+    strKeys = dict.keys()
+    if s in strKeys:
+        dict[s] += 1
+    else:
+        dict[s] = 1
+
+print(dict)
+
+#Above solution using tuples
+str3 = 'google.com'
+tuple3 = tuple(str3)
+uniqueItems = set(str3)
+for s in uniqueItems:
+    print(f'{s} : {tuple3.count(s)}')
+
+
+
+# return first 2 + last 2 letters of string
+str4 = 'PythonPrac'
+#str4 = 'PracPython'
+#tr4 = 'Py'
+#str4 = 'p'
+
+if len(str4) < 2:
+    print('')
+else:
+    print(str4[0:2] + str4[-2:])
+
+
+#Exercise!
+#Display the image below to the right hand side where the 0 is going to be ' ',
+# and the 1 is going to be '*'. This will reveal an image!
+picture = [
+  [0,0,0,1,0,0,0],
+  [0,0,1,1,1,0,0],
+  [0,1,1,1,1,1,0],
+  [1,1,1,1,1,1,1],
+  [0,0,0,1,0,0,0],
+  [0,0,0,1,0,0,0]
+]
+
+for i in picture:
+    print('\n')
+    for j in i:
+        if j == 0:
+            print(' ', end='')
+        else:
+            print('*', end='')
+
+
+#Print a list of duplicates from another list
+
+a_list = ['a', 'b', 'c', 'b', 'd', 'n', 'm', 'n']
+a_duplicate_list = []
+
+for i in a_list:
+    if(a_list.count(i) > 1 ):
+        if(i not in a_duplicate_list):
+            a_duplicate_list.append(i)
+
+print(a_duplicate_list)
+
+
+#Functions: Default Parameters, Positional Arguments, keyword Arguments
+
+def my_function():
+    print(f'My function takes no args')
+
+def my_new_func(name='Hawa Hawai', emoji=':P'):
+    print(f'Kehte hai mujhko {name}, Ooi ui ui!! {emoji}')
+
+my_function()
+my_new_func('Swasti', ':)')
+my_new_func('Umesh', ':(')
+my_new_func()
+
+
+#Function - returns, nested
+
+def sum1(num1, num2):
+    def sum2(n1,n2):
+        return n1+n2
+
+    return sum2(num1, num2)
+
+print(sum1(1,1))
+
+# doc string
+def docStringFunc(str):
+
+    '''
+    this is a doc string test function
+    '''
+    print(str)
+
+help(docStringFunc('abc'))
+
+
+#Highest even number
+def highest_even(num_list):
+    even_list = []
+    for n in num_list:
+        if n%2 == 0:
+            even_list.append(n)
+#    even_list.sort(reverse=True)
+
+    #return even_list[0]
+    return max(even_list)
+
+
+print(highest_even([10,2,3,4,11]))
+
+
+#cope, global
+
+total = 1
+def counter(total):
+    total+=1
+    return total
+
+print(counter(counter(counter(2))))
